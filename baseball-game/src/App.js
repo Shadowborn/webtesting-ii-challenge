@@ -3,6 +3,7 @@ import baseball from './baseball.svg';
 import './App.css';
 
 import Display from './Components/Display';
+// import Dashboard from './Components/Dashboard';
 
 class App extends Component {
   state = {
@@ -12,13 +13,17 @@ class App extends Component {
         id: 1,
         name: 'James',
         balls: 0,
-        strikes: 0
+        strikes: 0,
+        fouls: 2,
+        hits: 0
       },
       {
         id: 2,
         name: 'Blahb',
         balls: 0,
-        strikes: 0
+        strikes: 0,
+        fouls: 2,
+        hits: 0
       },
     ],
   };
@@ -30,12 +35,14 @@ class App extends Component {
           <img src={baseball} className="App-logo" alt="logo" />
         </header>
         <Display display={this.state.display}></Display>
+        {/* <Dashboard display={this.state.display}></Dashboard> */}
+        <button onClick={this.addpoint}>Add ball</button>
       </div>
     );
   }
 
-  greetTeam = () => {
-    this.setState({ greeting: "Hello Developers" })
+  addpoint = () => {
+    
   };
 }
 
