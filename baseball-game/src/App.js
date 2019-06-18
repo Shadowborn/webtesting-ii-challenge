@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import baseball from './baseball.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Display from './Components/Display';
+
+class App extends Component {
+  state = {
+    greeting: "Hello World",
+    display: [
+      {
+        id: 1,
+        name: 'James',
+        balls: 0,
+        strikes: 0
+      },
+      {
+        id: 2,
+        name: 'Blahb',
+        balls: 0,
+        strikes: 0
+      },
+    ],
+  };
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Baseball Score Table</h1>
+          <img src={baseball} className="App-logo" alt="logo" />
+        </header>
+        <Display display={this.state.display}></Display>
+      </div>
+    );
+  }
+
+  greetTeam = () => {
+    this.setState({ greeting: "Hello Developers" })
+  };
 }
 
 export default App;
