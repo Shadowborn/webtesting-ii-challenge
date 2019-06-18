@@ -6,7 +6,9 @@ import Display from './Components/Display';
 // import Dashboard from './Components/Dashboard';
 
 class App extends Component {
-  state = {
+  constructor(props){
+  super(props);
+  this.state = {
     greeting: "Hello World",
     display: [
       {
@@ -27,6 +29,8 @@ class App extends Component {
       },
     ],
   };
+}
+  
   render() {
     return (
       <div className="App">
@@ -34,16 +38,17 @@ class App extends Component {
           <h1>Baseball Score Table</h1>
           <img src={baseball} className="App-logo" alt="logo" />
         </header>
+        <button onClick={addballs}>Add balls</button>
         <Display display={this.state.display}></Display>
         {/* <Dashboard display={this.state.display}></Dashboard> */}
-        <button onClick={this.addpoint}>Add ball</button>
+        
       </div>
     );
+    function addballs() {
+      this.display[0].balls = this.display[0].balls++;
+      console.log("Button clicked", this.display[0].balls)
   }
-
-  addpoint = () => {
-    
-  };
-}
+  }
+};
 
 export default App;
