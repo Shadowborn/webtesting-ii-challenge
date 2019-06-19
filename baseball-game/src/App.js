@@ -30,7 +30,17 @@ class App extends Component {
     ],
   };
 }
+          
+addballs = () => {
+  this.setState({
+    display: Object.assign({}, this.state.display, {
+      balls: +1
+    })
+  })
+  console.log(this.state.hasBeenClicked); // prints false
+};
   
+
   render() {
     return (
       <div className="App">
@@ -38,16 +48,12 @@ class App extends Component {
           <h1>Baseball Score Table</h1>
           <img src={baseball} className="App-logo" alt="logo" />
         </header>
-        <button onClick={addballs}>Add balls</button>
+        <button onClick={this.addballs}>Add balls</button>
         <Display display={this.state.display}></Display>
         {/* <Dashboard display={this.state.display}></Dashboard> */}
         
       </div>
     );
-    function addballs() {
-      this.display[0].balls = this.display[0].balls++;
-      console.log("Button clicked", this.display[0].balls)
-  }
   }
 };
 
