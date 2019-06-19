@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import baseball from './baseball.svg';
 import './App.css';
 
-import Display from './Components/Display';
+// import Display from './Components/Display';
 // import Dashboard from './Components/Dashboard';
 
 class App extends Component {
@@ -10,36 +10,18 @@ class App extends Component {
   super(props);
   this.state = {
     greeting: "Hello World",
-    display: [
-      {
-        id: 1,
-        name: 'James',
-        balls: 0,
-        strikes: 0,
-        fouls: 2,
-        hits: 0
-      },
-      {
-        id: 2,
-        name: 'Blahb',
-        balls: 0,
-        strikes: 0,
-        fouls: 2,
-        hits: 0
-      },
-    ],
+    balls: 1,
+    strikes: 0,
+    fouls: 0,
+    hits: 0
   };
 }
-          
+  
 addballs = () => {
   this.setState({
-    display: Object.assign({}, this.state.display, {
-      balls: +1
-    })
-  })
-  console.log(this.state.hasBeenClicked); // prints false
-};
-  
+    balls: this.state.balls + 1
+  }, () => console.log(this.state.balls)) // prints true
+}
 
   render() {
     return (
@@ -48,8 +30,8 @@ addballs = () => {
           <h1>Baseball Score Table</h1>
           <img src={baseball} className="App-logo" alt="logo" />
         </header>
-        <button onClick={this.addballs}>Add balls</button>
-        <Display display={this.state.display}></Display>
+        {/* <Display display={this.state.display}></Display> */}
+        <div><button onClick={this.addballs}>Add to ball count</button>{this.state.balls}</div>
         {/* <Dashboard display={this.state.display}></Dashboard> */}
         
       </div>

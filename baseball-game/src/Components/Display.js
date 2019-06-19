@@ -1,21 +1,19 @@
-import React from 'react';
+// import React, { Component } from 'react';
+// import App from '../App';
 
-export default function Display({display}) {
-    if(!display.length) {
-        return <h2>No players to list</h2>
-    }
-    return (
-        <ul>
-            {display.map(display => (
-                <li key={display.id}>
-                    <div>{"Player: "}{display.name}</div>
-                    <div>{"Balls: "}{display.balls}
-                         {" Strikes: "}{display.strikes}
-                         {" Fouls: "}{display.fouls}
-                         {" Hits: "}{display.hits}
-                    </div>
-                </li>
-            ))}
-        </ul>
-    )
-}
+// class Display extends Component {
+
+//     addballs = () => {
+//         this.setState({
+//           balls: this.state.balls + 1
+//         }, () => console.log(this.state.balls)) // prints true
+//       }
+
+//     render(){
+//         return(
+//             <div><button onClick={this.addballs}>Add to ball count</button>{this.state.balls}</div>
+//         )
+//     }
+// }
+
+// export default Display;
