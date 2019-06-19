@@ -19,4 +19,19 @@ describe('<App />', () => {
     // if there are errors rendering the component, the test will fail
   });
 
+  describe('Add ball button', () => {
+    it('Add to ball count', () => {
+      const { getByText, queryByText } = render(<App />);
+      // find the button
+      const button = getByText(/Add to ball count/i);
+
+      // click it using fire event handler
+      fireEvent.click(button);
+
+      // confirm desired result, "hello developers" is there
+      expect(queryByText(/2/i)).toBeTruthy();
+
+    });
+  });
+
 });
